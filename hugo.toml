@@ -1,0 +1,14 @@
+baseURL = "https://ips-displays.com/"
+title = "IPS Displays"
+languageCode = "en-us"
+
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 10
+
+# sitemap 配置
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"

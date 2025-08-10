@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+  <header class="wrap">
+    <a href="/" class="logo">IPS Displays</a>
+    <nav>
+      <a href="/posts/">Posts</a>
+      <a href="/about/">About</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="wrap foot">© {{ now.Year }} IPS Displays</footer>
+</body>
+</html>
