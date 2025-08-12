@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
   <link rel="stylesheet" href="/css/style.css"/>
+  <meta name="google-site-verification" content="8y47XBs2on1cj5yXIIohA_Knd6p1rjYofLaB8Od7_jg" />
 </head>
 <body>
 <!-- Header: IPS Displays (glass, sticky, light theme) -->
@@ -39,6 +40,8 @@
   <main class="wrap">
     {{ block "main" . }}{{ end }}
   </main>
-  <footer class="wrap foot">© {{ now.Year }} IPS Displays</footer>
+  <footer class="site-footer">
+  <p>© {{ now.Year }}  IPS Displays. All rights reserved.</p>
+</footer>
 </body>
 </html>
