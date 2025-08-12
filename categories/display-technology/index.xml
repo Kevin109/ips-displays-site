@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Display Technology on IPS Displays</title><link>https://ips-displays.com/categories/display-technology/</link><description>Recent content in Display Technology on IPS Displays</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 12 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ips-displays.com/categories/display-technology/index.xml" rel="self" type="application/rss+xml"/><item><title>Display Interfaces: LVDS vs MIPI vs eDP vs HDMI</title><link>https://ips-displays.com/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/</link><pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate><guid>https://ips-displays.com/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/</guid><description>&lt;p>Choosing the right &lt;strong>display interface&lt;/strong> is critical in embedded and industrial system design.&lt;br>
+The interface affects &lt;strong>image quality, refresh rate, power consumption, cable length, EMI performance, and overall BOM cost&lt;/strong>.&lt;br>
+This guide compares &lt;strong>LVDS, MIPI DSI, eDP, and HDMI&lt;/strong> from an engineering perspective to help you select the best option.&lt;/p>
+&lt;hr>
+&lt;h2 id="1-lvds-low-voltage-differential-signaling">1. LVDS (Low-Voltage Differential Signaling)&lt;/h2>
+&lt;p>&lt;strong>Overview:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Long-standing interface for industrial displays.&lt;/li>
+&lt;li>Transmits data using differential pairs, reducing EMI and enabling longer cable runs.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Strengths:&lt;/strong>&lt;/p></description></item><item><title>IPS vs OLED for Embedded &amp; Industrial Displays</title><link>https://ips-displays.com/guides/ips-vs-oled-for-embedded-displays/</link><pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate><guid>https://ips-displays.com/guides/ips-vs-oled-for-embedded-displays/</guid><description>&lt;p>Choosing between &lt;strong>IPS&lt;/strong> and &lt;strong>OLED&lt;/strong> for an embedded or industrial display project is more than just a matter of image quality.&lt;br>
+It impacts &lt;strong>longevity, power efficiency, manufacturing cost, and the device’s suitability for different environments&lt;/strong>.&lt;br>
+This guide compares IPS and OLED from an &lt;strong>engineering perspective&lt;/strong>, helping you select the right technology for your application.&lt;/p>
+&lt;hr>
+&lt;h2 id="1-overview-of-ips-and-oled-technologies">1. Overview of IPS and OLED Technologies&lt;/h2>
+&lt;h3 id="ips-in-plane-switching">IPS (In-Plane Switching)&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Panel Type:&lt;/strong> LCD with liquid crystal molecules aligned in parallel to the substrate.&lt;/li>
+&lt;li>&lt;strong>Strengths:&lt;/strong> Excellent color accuracy, wide viewing angles, stable performance over time.&lt;/li>
+&lt;li>&lt;strong>Limitations:&lt;/strong> Requires a backlight, meaning higher thickness and some light leakage.&lt;/li>
+&lt;/ul>
+&lt;h3 id="oled-organic-light-emitting-diode">OLED (Organic Light-Emitting Diode)&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Panel Type:&lt;/strong> Self-emissive pixels that produce light individually.&lt;/li>
+&lt;li>&lt;strong>Strengths:&lt;/strong> Deep blacks, infinite contrast ratio, thin form factor, flexible designs possible.&lt;/li>
+&lt;li>&lt;strong>Limitations:&lt;/strong> Prone to burn-in over long static usage; shorter lifespan for blue emitters.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="2-viewing-angles-and-color-accuracy">2. Viewing Angles and Color Accuracy&lt;/h2>
+&lt;p>IPS panels are known for &lt;strong>178° wide viewing angles&lt;/strong> and &lt;strong>stable color reproduction&lt;/strong>. This is especially important in:&lt;/p></description></item><item><title>Outdoor Readability: Why Optical Bonding Matters for Industrial Displays</title><link>https://ips-displays.com/guides/outdoor-readability-optical-bonding-guide/</link><pubDate>Tue, 12 Aug 2025 00:00:00 +0000</pubDate><guid>https://ips-displays.com/guides/outdoor-readability-optical-bonding-guide/</guid><description>&lt;p>In outdoor and high-ambient-light environments, display readability becomes one of the biggest design challenges.&lt;br>
+Even with &lt;strong>high-brightness TFT LCDs&lt;/strong>, glare, reflections, and low contrast can make screens hard to read.&lt;br>
+&lt;strong>Optical bonding&lt;/strong> is a proven solution for enhancing outdoor visibility and ensuring displays remain functional in sunlight and harsh conditions.&lt;/p>
+&lt;hr>
+&lt;h2 id="1-understanding-the-readability-challenge">1. Understanding the Readability Challenge&lt;/h2>
+&lt;p>When sunlight or strong ambient lighting hits a display, two main problems occur:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Reflections&lt;/strong> – The air gap between the cover glass and LCD causes internal reflections, reducing contrast.&lt;/li>
+&lt;li>&lt;strong>Glare&lt;/strong> – Bright light scatters off the surface, washing out on-screen content.&lt;/li>
+&lt;/ol>
+&lt;p>These issues force designers to increase display brightness, which in turn &lt;strong>increases power consumption and heat generation&lt;/strong> — not ideal for industrial applications.&lt;/p></description></item></channel></rss>
