@@ -1,8 +1,141 @@
-{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
 {{ define "main" }}
-  <article class="post">
-    <h1>{{ .Title }}</h1>
-    <p class="date">{{ .Date.Format "2006-01-02" }}</p>
+{{ $section := .Section }}
+<article class="single single-{{ $section }} container">
+
+  <!-- ===== Header ===== -->
+  <header class="single-head">
+    <h1 class="single-title">{{ .Title }}</h1>
+
+    <div class="single-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+      {{ with .ReadingTime }}<span class="dot">·</span><span>{{ . }} min read</span>{{ end }}
+
+      {{ with .Params.tags }}
+      <span class="dot">·</span>
+      <ul class="single-tags">
+        {{ range . }}<li>#{{ . }}</li>{{ end }}
+      </ul>
+      {{ end }}
+    </div>
+
+    {{ with .Params.description }}
+      <p class="single-desc">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <!-- ===== Optional cover ===== -->
+  {{/* 1) 优先 front matter 的 cover 2) 其次 page resources 匹配 cover.*  */}}
+  {{ $cover := .Params.cover }}
+  {{ if not $cover }}
+    {{ with .Resources.GetMatch "cover*" }}{{ $cover = .RelPermalink }}{{ end }}
+  {{ end }}
+  {{ with $cover }}
+  <figure class="single-cover">
+    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+  </figure>
+  {{ end }}
+
+  <!-- ===== Panels 专属信息（可选） ===== -->
+  {{ if eq $section "panels" }}
+  <section class="panel-brief">
+    {{/* keyfacts: 可在 front matter 写成数组或字典，都会优雅退化显示 */}}
+    {{ with .Params.keyfacts }}
+    <div class="panel-facts">
+      <h3 class="panel-subtitle">Why this panel</h3>
+      <ul>
+        {{ if (reflect.IsSlice .) }}
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        {{ else }}
+          {{ range $k, $v := . }}<li><strong>{{ $k }}:</strong> {{ $v }}</li>{{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ with .Params.options }}
+    <div class="panel-options">
+      <h3 class="panel-subtitle">Options</h3>
+      <ul>
+        {{ if (reflect.IsSlice .) }}
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        {{ else }}
+          {{ range $k, $v := . }}<li><strong>{{ $k }}:</strong> {{ $v }}</li>{{ end }}
+        {{ end }}
+      </ul>
+    </div>
+    {{ end }}
+
+    {{ with .Params.specs }}
+    <div class="panel-specs">
+      <h3 class="panel-subtitle">Specifications</h3>
+      <table class="panel-specs-table">
+        <tbody>
+        {{ if (reflect.IsSlice .) }}
+          {{/* 支持数组形式：[{Key:..., Value:...}] 或 [{key:..., value:...}] */}}
+          {{ range . }}
+            <tr>
+              <th>{{ or .Key .key }}</th>
+              <td>{{ or .Value .value }}</td>
+            </tr>
+          {{ end }}
+        {{ else }}
+          {{/* 支持字典形式：specs: { Size: "10.1\"", Resolution: "1920×1200", ... } */}}
+          {{ range $k, $v := . }}
+            <tr><th>{{ $k }}</th><td>{{ $v }}</td></tr>
+          {{ end }}
+        {{ end }}
+        </tbody>
+      </table>
+    </div>
+    {{ end }}
+
+    <!-- ===== Related Core Guides ===== -->
+
+  </section>
+  {{ end }}
+
+  <!-- ===== Content ===== -->
+  <div class="single-body prose">
     {{ .Content }}
-  </article>
+  </div>
+<div class="related-guides">
+  <h3>Further Reading</h3>
+  <ul>
+    <li>
+      <a href="/guides/ips-vs-oled-for-embedded-displays/">
+        IPS vs OLED: Engineering comparison for embedded HMIs and outdoor systems
+      </a>
+    </li>
+    <li>
+      <a href="/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/">
+        Display Interfaces: LVDS, MIPI DSI, eDP, HDMI — pros & cons in real deployments
+      </a>
+    </li>
+    <li>
+      <a href="/guides/outdoor-readability-optical-bonding-guide/">
+        Outdoor Readability: Optical bonding, AR coatings, and high-nit panels
+      </a>
+    </li>
+  </ul>
+</div>
+  <!-- ===== Footer: tags + prev/next ===== -->
+  <footer class="single-foot">
+    {{ with .Params.tags }}
+    <div class="single-tags-row">
+      {{ range . }}<a class="tag-chip" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">#{{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+
+    <nav class="single-nav">
+      <div class="nav-prev">
+        {{ with .PrevInSection }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      </div>
+      <div class="nav-next">
+        {{ with .NextInSection }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+      </div>
+    </nav>
+  </footer>
+</article>
 {{ end }}

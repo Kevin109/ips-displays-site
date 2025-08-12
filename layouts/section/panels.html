@@ -1,0 +1,70 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="section-head">
+  <div class="ips-container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="page-sub">{{ . }}</p>
+    {{ else }}
+      <p class="page-sub">Industrial IPS display panels for embedded systems — sizes, interfaces, brightness, and options for outdoor readability and touch.</p>
+    {{ end }}
+  </div>
+</section>
+
+<section class="cards-section">
+  <div class="ips-container">
+    {{ $p := .Paginate (.Pages.ByDate.Reverse) }}
+    {{ if not (gt (len $p.Pages) 0) }}
+      <p>No panels have been published yet.</p>
+    {{ end }}
+
+    <div class="card-grid">
+      {{ range $p.Pages }}
+      <article class="card">
+        <a class="card-anchor" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+
+        {{ with .Params.cover }}
+        <figure class="card-media">
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+        </figure>
+        {{ end }}
+
+        <header class="card-header">
+          <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <div class="card-meta">
+            {{ with .Params.size }}<span class="chip">{{ . }}</span>{{ end }}
+            {{ with .Params.resolution }}<span class="chip">{{ . }}</span>{{ end }}
+            {{ with .Params.interface }}<span class="chip">{{ . }}</span>{{ end }}
+            {{ with .Params.brightness }}<span class="chip">{{ . }} nits</span>{{ end }}
+          </div>
+        </header>
+
+        <p class="card-desc">
+          {{- $desc := default (.Summary | plainify) .Params.description -}}
+          {{ $desc | plainify | truncate 140 }}
+        </p>
+
+        {{ with .Params.tags }}
+        <ul class="card-tags">
+          {{ range . }}<li>#{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+
+        <footer class="card-footer">
+          <!-- <span class="card-cta">View specs →</span> -->
+        </footer>
+      </article>
+      {{ end }}
+    </div>
+
+    {{ if gt $p.TotalPages 1 }}
+    <nav class="pagination" aria-label="Pagination">
+      {{ with $p.Prev }}<a class="page-btn" href="{{ .URL }}">← Newer</a>{{ else }}<span class="page-btn is-disabled">← Newer</span>{{ end }}
+      <span class="page-count">Page {{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
+      {{ with $p.Next }}<a class="page-btn" href="{{ .URL }}">Older →</a>{{ else }}<span class="page-btn is-disabled">Older →</span>{{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

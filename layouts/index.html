@@ -1,0 +1,80 @@
+{{ define "title" }}{{ .Site.Title }} – Industrial Display Guides{{ end }}
+
+{{ define "main" }}
+<!-- ===== Soft banner / masthead ===== -->
+<section class="ips-page-banner">
+  <div class="ips-container">
+    <img src="/images/ips-display-banner.jpg" alt="ips display" />
+
+    <h1>IPS Displays for Embedded & Industrial Systems</h1>
+    <p>Comprehensive engineering guides on IPS display technology—covering interface selection, outdoor readability,
+      durability, and reliable long-term performance for critical embedded applications.</p>
+  </div>
+</section>
+
+<!-- ===== Core guides (show once) ===== -->
+<section class="home-core">
+  <div class="ips-container core-grid">
+    <a class="core-card" href="/guides/ips-vs-oled-for-embedded-displays/">
+      <img class="core-img" src="/images/guides/IPS-vs-OLED.jpg" alt="IPS vs OLED comparison">
+      <h2 class="core-title">IPS vs OLED</h2>
+      <p class="core-desc">Image quality, lifetime, burn-in risk, power, and cost—an engineering comparison for embedded
+        HMIs and outdoor systems.</p>
+      <span class="core-cta">Read →</span>
+    </a>
+
+    <a class="core-card" href="/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/">
+      <img class="core-img" src="/images/guides/display-Interface.webp" alt="Display Interfaces LVDS MIPI eDP HDMI">
+      <h2 class="core-title">Display Interfaces</h2>
+      <p class="core-desc">LVDS, MIPI DSI, eDP, HDMI—bandwidth, cable length, EMI, and BOM trade-offs for real
+        deployments.</p>
+      <span class="core-cta">Read →</span>
+    </a>
+
+    <a class="core-card" href="/guides/outdoor-readability-optical-bonding-guide/">
+      <img class="core-img" src="/images/panels/7inch-1024x600.webp"
+        alt="Outdoor Readability optical bonding high brightness">
+      <h2 class="core-title">Outdoor Readability</h2>
+      <p class="core-desc">Optical bonding, AR coatings, and high-nit panels to keep screens readable in sunlight.</p>
+      <span class="core-cta">Read →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== Industry Intro / About ===== -->
+<section class="home-intro">
+  <div class="ips-container">
+    <h2>IPS Display Technology for Embedded & Industrial Systems</h2>
+    <p>
+      In modern embedded and industrial design, display technology is no longer just about showing data—it’s about
+      ensuring clarity, durability, and reliability in any environment.
+      IPS (In-Plane Switching) panels deliver consistent color reproduction, wide viewing angles, and stable image
+      quality over time, making them the preferred choice for critical applications.
+    </p>
+    <p>
+      From <strong>smart factory HMIs</strong> to <strong>outdoor kiosks</strong> and <strong>medical monitoring
+        equipment</strong>, IPS displays are redefining user interaction standards.
+      With their ability to handle challenging lighting conditions, resist color shift, and maintain visual integrity
+      under continuous operation, IPS panels are driving the next generation of industrial user interfaces.
+    </p>
+    <p>
+      Our guides cover everything from selecting the right <strong>display interface</strong> (LVDS, MIPI, eDP, HDMI) to
+      improving <strong>outdoor readability</strong> with optical bonding and anti-reflective coatings.
+      Whether you are building a ruggedized control panel, upgrading legacy equipment, or designing a new embedded
+      device from scratch, we provide the technical insights needed for long-term success.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Bottom CTA ===== -->
+<section class="home-cta">
+  <div class="ips-container">
+    <h3>Design with confidence.</h3>
+    <p>Start with the interface and readability choices. Then lock panel, touch, and enclosure for long-life builds.</p>
+    <div class="cta-actions">
+      <a class="btn-outline" href="/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/">Start with Interfaces</a>
+      <a class="btn-outline" href="/guides/outdoor-readability-optical-bonding-guide/">Plan Outdoor Readability</a>
+    </div>
+  </div>
+</section>
+{{ end }}

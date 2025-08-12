@@ -1,0 +1,65 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="section-head">
+  <div class="container">
+    <h1 class="page-title">{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="page-intro">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<section class="guides-section">
+  <div class="container">
+    <div class="grid-guides">
+      {{ $list := .Pages.ByDate.Reverse }}
+      {{ $p := .Paginate $list }}
+      {{ range $p.Pages }}
+      <article class="guide-card">
+        <a class="card-anchor" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+
+        {{ with .Params.cover }}
+        <figure class="card-media">
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+        </figure>
+        {{ end }}
+
+        <header class="card-header">
+          <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          <div class="card-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+            {{ with .ReadingTime }}<span class="sep">·</span><span>{{ . }} min read</span>{{ end }}
+          </div>
+        </header>
+
+        <div class="card-body">
+          {{- $desc := default (.Summary | plainify) .Params.description -}}
+          <p class="card-desc">{{ $desc | plainify | truncate 160 }}</p>
+
+          {{ with .Params.tags }}
+          <ul class="card-tags">
+            {{ range first 4 . }}<li>#{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+        </div>
+
+        <footer class="card-footer">
+          <span class="card-cta">Read →</span>
+        </footer>
+      </article>
+      {{ end }}
+    </div>
+
+    {{ if gt $p.TotalPages 1 }}
+    <nav class="pagination" aria-label="Pagination">
+      {{ with $p.Prev }}<a class="page-btn" href="{{ .URL }}">← Newer</a>{{ else }}<span class="page-btn is-disabled">← Newer</span>{{ end }}
+      <span class="page-count">Page {{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
+      {{ with $p.Next }}<a class="page-btn" href="{{ .URL }}">Older →</a>{{ else }}<span class="page-btn is-disabled">Older →</span>{{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
