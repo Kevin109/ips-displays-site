@@ -1,47 +1,53 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  <link rel="stylesheet" href="/css/style.css"/>
+  <link rel="stylesheet" href="/css/style.css" />
   <meta name="google-site-verification" content="8y47XBs2on1cj5yXIIohA_Knd6p1rjYofLaB8Od7_jg" />
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </head>
+
 <body>
-<!-- Header: IPS Displays (glass, sticky, light theme) -->
-<header class="ips-header">
-  <div class="ips-container">
-    <a href="/" class="ips-brand" aria-label="IPS Displays Home">
-      <!-- tiny inline icon so it feels unique to this site -->
-      <svg class="ips-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-        <defs>
-          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#60c7df"/>
-            <stop offset="1" stop-color="#69e0b7"/>
-          </linearGradient>
-        </defs>
-        <rect x="2" y="2" width="8" height="20" rx="2" fill="url(#g)"/>
-        <rect x="14" y="6" width="8" height="16" rx="2" fill="#a7f3d0"/>
-      </svg>
-      <span class="ips-name">IPS <span class="thin">Displays</span></span>
-    </a>
+  <!-- Header: IPS Displays (glass, sticky, light theme) -->
+  <header class="ips-header">
+    <div class="ips-container">
+      <a href="/" class="ips-brand" aria-label="IPS Displays Home">
+        <!-- tiny inline icon so it feels unique to this site -->
+        <svg class="ips-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#60c7df" />
+              <stop offset="1" stop-color="#69e0b7" />
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="8" height="20" rx="2" fill="url(#g)" />
+          <rect x="14" y="6" width="8" height="16" rx="2" fill="#a7f3d0" />
+        </svg>
+        <span class="ips-name">IPS <span class="thin">Displays</span></span>
+      </a>
 
-    <nav class="ips-nav" aria-label="Primary">
-      <a class="nav-link" href="/guides/">Guides</a>
-      <a class="nav-link" href="/panels/">Panels</a>
-      <a class="nav-link" href="/blogs/">Blogs</a>
-    </nav>
+      <nav class="ips-nav" aria-label="Primary">
+        <a class="nav-link" href="/guides/">Guides</a>
+        <a class="nav-link" href="/panels/">Panels</a>
+        <a class="nav-link" href="/blogs/">Blogs</a>
+      </nav>
 
-    <div class="ips-cta">
-      <a class="btn-outline" href="/about/">About</a>
+      <div class="ips-cta">
+        <a class="btn-outline" href="/about/">About</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
   <main class="wrap">
     {{ block "main" . }}{{ end }}
   </main>
   <footer class="site-footer">
-  <p>© {{ now.Year }}  IPS Displays. All rights reserved.</p>
-</footer>
+    <p>© {{ now.Year }} IPS Displays. All rights reserved.</p>
+  </footer>
 </body>
+
 </html>
