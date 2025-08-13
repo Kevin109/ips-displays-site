@@ -1,0 +1,60 @@
+{{ define "title" }}Tags | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="section-head">
+  <h1 class="page-title">All Tags</h1>
+  <p class="page-intro">Topics covered by IPS Displays guides and posts.</p>
+</section>
+
+<section class="guides-section">
+  <div class="grid-guides">
+    {{ range .Data.Terms.Alphabetical }}
+      {{/* 当前项是 page.OrderedTaxonomyEntry */}}
+      {{ $term := .Term }}
+      {{ $page := .Page }}
+      {{ $count := .Count }}
+
+      <article class="guide-card">
+        <a class="card-anchor"
+           href="{{ if $page }}{{ $page.RelPermalink }}{{ else }}/tags/{{ $term | urlize }}/{{ end }}"
+           aria-label="{{ $term }}"></a>
+
+        <header class="card-header">
+          <h2 class="card-title">
+            <a href="{{ if $page }}{{ $page.RelPermalink }}{{ else }}/tags/{{ $term | urlize }}/{{ end }}">
+              {{ if $page }}{{ $page.Title }}{{ else }}{{ $term }}{{ end }}
+            </a>
+          </h2>
+          <div class="card-meta"><span>{{ $count }} posts</span></div>
+        </header>
+
+        <div class="card-body">
+          <p class="card-desc">Posts tagged with “{{ $term }}”.</p>
+        </div>
+
+        <footer class="card-footer">
+          <span class="card-cta">Browse →</span>
+        </footer>
+      </article>
+    {{ end }}
+  </div>
+</section>
+
+<section class="related-core">
+  <h2>Recommended Guides</h2>
+  <div class="core-grid">
+    <a class="core-card" href="/guides/ips-vs-oled-for-embedded-displays/">
+      <img src="/images/guides/IPS-vs-OLED.jpg" alt="IPS vs OLED comparison">
+      <span class="core-title">IPS vs OLED</span>
+    </a>
+    <a class="core-card" href="/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/">
+      <img src="/images/guides/display-Interface.webp" alt="Display Interfaces LVDS MIPI eDP HDMI">
+      <span class="core-title">Display Interfaces</span>
+    </a>
+    <a class="core-card" href="/guides/outdoor-readability-optical-bonding-guide/">
+      <img src="/images/panels/7inch-1024x600.webp" alt="Outdoor Readability optical bonding high brightness">
+      <span class="core-title">Outdoor Readability</span>
+    </a>
+  </div>
+</section>
+{{ end }}

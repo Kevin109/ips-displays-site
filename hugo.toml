@@ -5,6 +5,16 @@ languageCode = "en-us"
 enableRobotsTXT = true
 disableKinds = ["RSS"]
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home     = ["HTML"]        
+  section  = ["HTML"]
+  taxonomy = ["HTML"]         
+  term     = ["HTML"]         
+
 [pagination]
   pagerSize = 10
 

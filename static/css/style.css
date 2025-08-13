@@ -353,6 +353,10 @@ nav a { margin-right: 12px; text-decoration: none; }
   transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
   text-decoration: none;
 }
+.core-card img{
+  width: 100%;
+}
+
 .core-card,
 .core-card * {
   text-decoration: none;

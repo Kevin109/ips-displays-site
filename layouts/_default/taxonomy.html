@@ -1,0 +1,75 @@
+{{ define "title" }}{{ .Title }} | {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="section-head">
+  <h1 class="page-title">{{ .Title }}</h1>
+
+  {{/* If this term has content (via content/tags/<term>/_index.md), show it; else a fallback line */}}
+  {{ with .Content }}
+    <p class="page-intro">{{ . }}</p>
+  {{ else }}
+    <p class="page-intro">Curated content tagged <strong>{{ .Title }}</strong> — guides and posts around this topic.</p>
+  {{ end }}
+</section>
+
+<section class="guides-section">
+  <div class="grid-guides">
+    {{/* Safe paginate over this term's pages */}}
+    {{ $pages := .Pages }}
+    {{ $p := .Paginate ($pages.ByDate.Reverse) }}
+    {{ range $p.Pages }}
+    <article class="guide-card">
+      <a class="card-anchor" href="{{ .RelPermalink }}" aria-label="{{ .Title }}"></a>
+
+      <header class="card-header">
+        <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <div class="card-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+          {{ with .ReadingTime }}<span class="sep">·</span><span>{{ . }} min</span>{{ end }}
+        </div>
+      </header>
+
+      <div class="card-body">
+        {{ $desc := default (.Summary | plainify) .Params.description }}
+        <p class="card-desc">{{ $desc | plainify | truncate 140 }}</p>
+      </div>
+
+      <footer class="card-footer">
+        <span class="card-cta">Read →</span>
+      </footer>
+    </article>
+    {{ end }}
+  </div>
+
+  {{ if gt $p.TotalPages 1 }}
+  <nav class="pagination" aria-label="Pagination">
+    {{ with $p.Prev }}<a class="page-btn" href="{{ .URL }}">← Newer</a>{{ else }}<span class="page-btn is-disabled">← Newer</span>{{ end }}
+    <span class="page-count">Page {{ $p.PageNumber }} / {{ $p.TotalPages }}</span>
+    {{ with $p.Next }}<a class="page-btn" href="{{ .URL }}">Older →</a>{{ else }}<span class="page-btn is-disabled">Older →</span>{{ end }}
+  </nav>
+  {{ end }}
+</section>
+
+<section class="related-core">
+  <h2>Recommended Guides</h2>
+  <div class="core-grid">
+    <a class="core-card" href="/guides/ips-vs-oled-for-embedded-displays/">
+      <img src="/images/guides/IPS-vs-OLED.jpg" alt="IPS vs OLED comparison">
+      <span class="core-title">IPS vs OLED</span>
+      <p class="core-desc">Image quality, lifetime, burn-in risk, power, and cost—an engineering comparison for embedded
+        HMIs and outdoor systems.</p>
+    </a>
+    <a class="core-card" href="/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/">
+      <img src="/images/guides/display-Interface.webp" alt="Display Interfaces LVDS MIPI eDP HDMI">
+      <span class="core-title">Display Interfaces</span>
+      <p class="core-desc">LVDS, MIPI DSI, eDP, HDMI—bandwidth, cable length, EMI, and BOM trade-offs for real
+        deployments.</p>
+    </a>
+    <a class="core-card" href="/guides/outdoor-readability-optical-bonding-guide/">
+      <img src="/images/panels/7inch-1024x600.webp" alt="Outdoor Readability optical bonding high brightness">
+      <span class="core-title">Outdoor Readability</span>
+      <p class="core-desc">Optical bonding, AR coatings, and high-nit panels to keep screens readable in sunlight.</p>
+    </a>
+  </div>
+</section>
+{{ end }}
