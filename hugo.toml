@@ -3,6 +3,7 @@ title = "IPS Displays"
 languageCode = "en-us"
 
 enableRobotsTXT = true
+disableKinds = ["RSS"]
 
 [pagination]
   pagerSize = 10
