@@ -98,6 +98,9 @@ Prototyping, external displays, digital signage.
 ---
 
 ## 5. Comparison Table
+Before looking at the direct comparison, it’s also useful to understand how resolution and aspect ratio influence interface selection, since different standards scale differently with pixel density.
+
+For a deeper dive, check this guide on [resolution and aspect ratio in TFT displays](https://tft-display.net/posts/resolution-aspect-ratio/).
 
 | Feature                | LVDS                  | MIPI DSI               | eDP                     | HDMI                    |
 |------------------------|----------------------|------------------------|------------------------|------------------------|
