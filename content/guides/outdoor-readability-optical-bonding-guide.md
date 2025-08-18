@@ -83,6 +83,7 @@ Optical bonding works best when combined with:
 - **Anti-Reflective (AR) Coatings** – Reduces surface reflections further.  
 - **UV-Protective Films** – Prevents yellowing and degradation.  
 - **IPS Panels** – Maintains wide viewing angles and color accuracy.
+
 For engineers looking into practical **display configuration examples**, you can check out this [GitHub-based configuration resource](https://kevin109.github.io/github-display-config) that shares real-world setup references.
 
 ---
