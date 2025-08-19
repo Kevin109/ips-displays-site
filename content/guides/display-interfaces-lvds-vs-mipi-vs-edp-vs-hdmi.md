@@ -137,6 +137,12 @@ For a deeper dive, check this guide on [resolution and aspect ratio in TFT displ
 
 ---
 
+## Additional Resource
+
+For readers who want a broader overview of how these interfaces are used in embedded systems, you can also check this [Google page on display interfaces](https://sites.google.com/view/embedded-sbc/display-interface).
+
+---
+
 ## Final Thoughts
 
 No single display interface is perfect for every embedded project.  
