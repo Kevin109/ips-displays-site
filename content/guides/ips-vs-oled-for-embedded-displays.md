@@ -94,6 +94,7 @@ In **harsh environments**, IPS generally offers higher ruggedness.
 - The UI has **static elements** for long periods.
 - You require **10+ years availability** with minimal risk of obsolescence.
 - The project demands **cost efficiency** in large volumes.
+- The application involves **medical imaging or diagnostics**, where stable color reproduction and long panel lifespan are critical. (For a deeper dive into this, see The Role of [Industrial TFT Displays in Modern Medical Imaging](https://industrial-tft.com/posts/tft-displays-in-modern-medical-imaging/)).
 
 ### Use OLED when:
 - The design requires **ultra-thin or flexible displays**.
@@ -106,7 +107,5 @@ In **harsh environments**, IPS generally offers higher ruggedness.
 
 Both IPS and OLED have strong cases in industrial and embedded applications.  
 **IPS** remains the go-to choice for **longevity, outdoor performance, and cost stability**, while **OLED** shines in **design flexibility and premium image quality**.
-
-If you're still unsure which panel fits your application, read our [Display Interfaces Guide](/guides/display-interfaces-lvds-vs-mipi-vs-edp-vs-hdmi/) to understand how connection standards affect performance, cost, and integration.
 
 ---
