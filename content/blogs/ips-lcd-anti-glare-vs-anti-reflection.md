@@ -160,4 +160,4 @@ Both **Anti-Glare (AG)** and **Anti-Reflection (AR)** are effective solutions fo
 
 Ultimately, the right choice depends on **budget, performance expectations, and use-case environment**.  
 
-👉 For further insights into IPS and TFT display technologies, and for curated technical resources, you can check my profile here: [Kevin’s GitHub Resources](https://linktr.ee/kevingithubio).  
+👉 For further insights into IPS and [TFT display](https://linktr.ee/tftdisplays) technologies, and for curated technical resources, you can check my profile here: [Kevin’s GitHub Resources](https://linktr.ee/kevingithubio).  
